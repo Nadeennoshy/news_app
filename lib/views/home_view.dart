@@ -5,8 +5,29 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: RichText(
+          text: const TextSpan(
+          children: [
+            TextSpan(text: 'News',
+            style: TextStyle(
+              color: Colors.black
+            ),
+            ),
+            TextSpan(text: 'Cloud',
+            style: TextStyle(
+              color: Colors.orange,
+            ),
+            ),
+          ],
+          style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)
+          ),
+          
+          ),
+      ),
     );
   }
 }
