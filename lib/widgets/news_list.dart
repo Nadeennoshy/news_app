@@ -7,9 +7,10 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: 15,
       itemBuilder: (BuildContext context,index){
-        return NewsItem();
+        return const NewsItem();
       });
   }
 }
