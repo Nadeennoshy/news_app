@@ -10,19 +10,20 @@ class CategoryItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Container(
-        width: 150,
-        height: 100,
+        width: 170,
+        height: 95,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(12),
           // borderRadius: ,
         image: DecorationImage(
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
           image: AssetImage(category.categoryImage))
         ),
         child:  Center(
           child: Text(category.categoryName,
           style: const TextStyle(color: Colors.white,
           fontSize: 18,
+          fontWeight: FontWeight.bold,
           ),
           ),
         ),

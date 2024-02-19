@@ -30,28 +30,50 @@ class HomeView extends StatelessWidget {
           ),
           ),
       ),
+     
+      // body: const Padding(
+      //   padding: EdgeInsets.symmetric(horizontal: 16),
+      //   child: Column(
+      //     children: [
+      //       CategoriesList(),
+      //       SizedBox(height:12),
+      //       Expanded(child: NewsList()),
+      //     ],
+      //   ),
+      // ),
+     
+      /// This gives exception 
+      // body: CustomScrollView(
+      //   slivers: [
+      //     SliverToBoxAdapter(child: CategoriesList(),),
+      //     SliverToBoxAdapter(child: SizedBox(height: 12,),),
+      //     SliverToBoxAdapter(child: Expanded(child: NewsList())),
+      //   ],
+      // ),
+
+      //  body: const Padding(
+      //   padding: EdgeInsets.symmetric(horizontal: 16),
+      //   child: CustomScrollView(
+      //     physics: BouncingScrollPhysics(),
+      //     slivers: [
+      //       SliverToBoxAdapter(child: CategoriesList(),),
+      //       SliverToBoxAdapter(child: SizedBox(height: 12,),),
+      //       SliverToBoxAdapter(child: NewsList(),),
+      //     ],
+      //   ),
+      // ),
+
       body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 13),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
-            SliverToBoxAdapter(child: CategoriesList(),),
-            SliverToBoxAdapter(child: SizedBox(height: 12,),),
-            SliverToBoxAdapter(child: NewsList(),),
+            SliverToBoxAdapter(child: CategoriesList()),
+            SliverToBoxAdapter(child: SizedBox(height: 12,)),
+            NewsList(),
           ],
         ),
       ),
-      // body: CategoriesList(),
-      // body: NewsList(),
-      // body: SizedBox(
-      //   height: 120,
-      //   child: ListView.builder(
-      //     scrollDirection: Axis.horizontal,
-      //     itemCount: categories.length,
-      //     itemBuilder: (BuildContext context,index){
-      //       return CategoryItem(category: categories[index]);
-      //     }),
-      // ),
-      // body: CategoryItem(),
     );
   }
 }

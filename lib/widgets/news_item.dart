@@ -6,10 +6,12 @@ class NewsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(10),
           child: Image.asset('assets/images/business.jpg',
+          fit: BoxFit.cover,
           ),
         ),
         const SizedBox(height: 12,),
@@ -17,11 +19,11 @@ class NewsItem extends StatelessWidget {
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
+          fontWeight: FontWeight.w500,
+          fontSize: 20,
         ),
         ),
-        const SizedBox(height: 4,),
+        const SizedBox(height: 8,),
         const Text('newsdescrptionnewsdescrptionnewsdescrptionnewsdescrptionnewsdescrptionnewsdescrptionnewsdescrptionnewsdescrptionnewsdescrption',
         maxLines: 2,
         style: TextStyle(
@@ -29,7 +31,7 @@ class NewsItem extends StatelessWidget {
           fontSize: 16,
         ),
         ),
-        const SizedBox(height: 12,),
+        const SizedBox(height: 20,),
       ],
     );
   }
