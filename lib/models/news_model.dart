@@ -1,5 +1,5 @@
 class NewsModel{
-  final String newsImage;
+  final String? newsImage;
   final String title;
   final String description;
 
