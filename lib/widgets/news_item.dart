@@ -16,7 +16,10 @@ class NewsItem extends StatelessWidget {
           child: newsItem.newsImage!= null && newsItem.newsImage!.isNotEmpty
       ? CachedNetworkImage(
           imageUrl: newsItem.newsImage!,
-          placeholder: (context, url) => const CircularProgressIndicator(),
+          width: double.infinity,
+          height: 200,
+          fit: BoxFit.cover,
+          placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
           errorWidget: (context, url, error) => const Icon(Icons.error),
         )
       : const Icon(Icons.error,
