@@ -16,7 +16,7 @@ class NewsItem extends StatelessWidget {
           height: 200,
           width: double.infinity,
           fit: BoxFit.cover,
-          ):Text('hello'),
+          ):const Text('hello'),
         ),
         const SizedBox(height: 12,),
         Text(newsItem.title,

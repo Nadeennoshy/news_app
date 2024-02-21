@@ -14,23 +14,28 @@ class NewsListViewBuilder extends StatefulWidget {
 }
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
-  List<NewsModel> news = [];
-  bool isLoading = true;
- @override
-  void initState(){
+  var future;
+  @override
+  void initState() {
+    future = NewsServices(Dio()).getNews();
     super.initState();
-    getNews();
-  }
-
-  Future<void> getNews() async {
-    news = await NewsServices(Dio()).getNews();
-    isLoading = false;
-    setState(() {
-    
-    });
   }
   @override
   Widget build(BuildContext context) {
-    return isLoading?const SliverFillRemaining(child: Center(child: CircularProgressIndicator(),),):NewsList(news: news,);
+    return FutureBuilder<List<NewsModel>>(
+      future: future, 
+      builder: ((context, snapshot) {
+        if(snapshot.hasData){
+          return NewsList(news: snapshot.data!);
+        }
+        else if(snapshot.hasError){
+          return const Center(child: Text('oops, there was an error try later'));
+        }
+        else{
+          return const SliverFillRemaining(child: Center(child: CircularProgressIndicator()));
+        }
+            }));
+    
+    // isLoading?const SliverFillRemaining(child: Center(child: CircularProgressIndicator(),),):NewsList(news: news,);
   }
 }
