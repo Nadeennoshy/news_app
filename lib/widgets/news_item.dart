@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/news_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({super.key,required this.newsItem});
@@ -12,11 +13,20 @@ class NewsItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: newsItem.newsImage != null ?Image.network(newsItem.newsImage!,
-          height: 200,
-          width: double.infinity,
-          fit: BoxFit.cover,
-          ):const Text('hello'),
+          child: newsItem.newsImage!= null && newsItem.newsImage!.isNotEmpty
+      ? CachedNetworkImage(
+          imageUrl: newsItem.newsImage!,
+          placeholder: (context, url) => const CircularProgressIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        )
+      : const Icon(Icons.error,
+      color: Colors.red,
+      ),
+          // child: newsItem.newsImage != null ?Image.network(newsItem.newsImage!,
+          // height: 200,
+          // width: double.infinity,
+          // fit: BoxFit.cover,
+          // ):const Text('hello'),
         ),
         const SizedBox(height: 12,),
         Text(newsItem.title,
