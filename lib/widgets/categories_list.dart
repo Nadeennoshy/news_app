@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/category_model.dart';
-import 'package:news_app/widgets/category_item.dart';
+import 'package:news_app/widgets/category_card.dart';
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({super.key});
@@ -22,7 +22,7 @@ class CategoriesList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (BuildContext context,index){
-            return CategoryItem(category: categories[index]);
+            return CategoryCard(category: categories[index]);
           }),
       );
   }
